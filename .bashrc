@@ -1,1 +1,1 @@
-/home/tyler/.bashrc
+../.bashrc
