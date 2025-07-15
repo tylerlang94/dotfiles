@@ -172,7 +172,7 @@ return {
               disable = { 'missing-fields' },
             },
             format = {
-              enable = false,
+              enable = true,
             },
           },
         },
