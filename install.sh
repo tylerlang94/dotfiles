@@ -38,5 +38,5 @@ fi
 ln -s "$TMUX_SRC" "$TMUX_DEST"
 echo "  ✓ linked tmux.conf"
 
-echo "All done! 🎉"
+echo "All done!"
 
