@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("plugins.alpha"),
 	require("plugins.require-blank-line"),
 	require("plugins.none-ls"),
+	require("plugins.conform"),
 	--	require("plugins.go"),
 	-- THEME
 	require("plugins.themes.gruvbox"),
