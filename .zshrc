@@ -76,9 +76,23 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls la --color'
+alias ls='ls -la --color'
 alias vim='nvim'
 alias c='clear'
+alias dir="ls -la"
+
+# NOTE TMUX Aliases
+alias tmux-new="tmux new-session -s"
+alias tmux-attach="tmux attach-session"
+alias tmux-list="tmux ls"
+alias tmux-kill="tmux kill-session -t"
+alias tmux-rename-window="tmux rename-window"
+alias tmux-split-h="tmux split-window -h"
+alias tmux-split-v="tmux split-window -v"
+alias tmux-next-window="tmux next-window"
+alias tmux-prev-window="tmux previous-window"
+
+alias flush-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 # Shell integrations
 eval "$(fzf --zsh)"
