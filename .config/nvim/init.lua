@@ -1,5 +1,5 @@
-require("core.options")  -- Load general options
-require("core.keymaps")  -- Load general keymaps
+require("core.options") -- Load general options
+require("core.keymaps") -- Load general keymaps
 require("core.snippets") -- Custom code snippets
 
 -- Set up the Lazy plugin manager
@@ -31,7 +31,9 @@ require("lazy").setup({
 	require("plugins.require-blank-line"),
 	require("plugins.none-ls"),
 	require("plugins.conform"),
+	require("plugins.lazygit"),
 	--	require("plugins.go"),
+	--
 	-- THEME
 	require("plugins.themes.gruvbox"),
 })
