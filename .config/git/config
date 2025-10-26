@@ -7,3 +7,6 @@
 	rebase = true
 [init]
 	defaultBranch = master
+[user]
+	email = tylerlang94@protonmail.com
+	name = Tyler Lang
