@@ -1,8 +1,0 @@
-2025/10/26-03:51:20.232 5 Creating DB /home/tylerlang/.config/chromium/Default/Local Storage/leveldb since it was missing.
-2025/10/26-03:51:20.243 5 Reusing MANIFEST /home/tylerlang/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
-2025/10/26-04:01:28.488 7 Level-0 table #5: started
-2025/10/26-04:01:28.490 7 Level-0 table #5: 29695 bytes OK
-2025/10/26-04:01:28.491 7 Delete type=0 #3
-2025/10/26-04:13:35.252 7 Level-0 table #7: started
-2025/10/26-04:13:35.255 7 Level-0 table #7: 195906 bytes OK
-2025/10/26-04:13:35.257 7 Delete type=0 #4
