@@ -1,0 +1,7 @@
+2025/10/26-04:18:01.585 e4b Reusing MANIFEST /home/tylerlang/.config/chromium/Default/WebStorage/5/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/10/26-04:18:01.585 e4b Recovering log #3
+2025/10/26-04:18:01.585 e4b Reusing old log /home/tylerlang/.config/chromium/Default/WebStorage/5/IndexedDB/indexeddb.leveldb/000003.log 
+2025/10/26-04:18:14.247 e4c Level-0 table #5: started
+2025/10/26-04:18:14.248 e4c Level-0 table #5: 51093 bytes OK
+2025/10/26-04:18:14.250 e4c Delete type=0 #3
+2025/10/26-04:18:14.250 e4c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
