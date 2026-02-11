@@ -80,6 +80,9 @@ alias vim='nvim'
 alias c='clear'
 alias dir="ls -la"
 
+# Programming Aliases
+alias run='./Scripts/run.sh'
+
 # NOTE TMUX Aliases
 alias tmux-new="tmux new-session -s"
 alias tmux-attach="tmux attach-session"
@@ -106,3 +109,5 @@ eval "$(zoxide init --cmd cd zsh)"
 [[ ! -r '/Users/tylerlang/.opam/opam-init/init.zsh' ]] || source '/Users/tylerlang/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 export PATH="$HOME/opt/zig:$PATH"
+
+. "$HOME/.local/bin/env"

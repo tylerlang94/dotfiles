@@ -32,6 +32,7 @@ require("lazy").setup({
 	require("plugins.none-ls"),
 	require("plugins.conform"),
 	require("plugins.lazygit"),
+	require("plugins.markdown"),
 	--	require("plugins.go"),
 	--
 	-- THEME
