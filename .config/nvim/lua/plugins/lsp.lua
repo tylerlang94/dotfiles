@@ -82,6 +82,34 @@ return {
 				--    See `:help CursorHold` for information about when this is executed
 				-- When you move your cursor, the highlights will be cleared (the second autocommand).
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
+				-- Autoformat C/C++ with clangd on save
+				if client and client.name == "clangd" then
+					local ft = vim.bo[event.buf].filetype
+
+					if ft == "c" or ft == "cpp" or ft == "objc" or ft == "objcpp" or ft == "cuda" then
+						local format_augroup = vim.api.nvim_create_augroup("kickstart-lsp-format", { clear = false })
+
+						vim.api.nvim_clear_autocmds({
+							group = format_augroup,
+							buffer = event.buf,
+						})
+
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = format_augroup,
+							buffer = event.buf,
+							callback = function()
+								vim.lsp.buf.format({
+									bufnr = event.buf,
+									async = false,
+									filter = function(c)
+										return c.name == "clangd"
+									end,
+								})
+							end,
+						})
+					end
+				end
+
 				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -154,6 +182,16 @@ return {
 			tailwindcss = {},
 			dockerls = {},
 			sqlls = {},
+			rust_analyzer = {
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+						checkOnSave = true,
+					},
+				},
+			},
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
@@ -181,6 +219,9 @@ return {
 			},
 			vue_ls = {
 				filetypes = { "vue", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+			},
+			clangd = {
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 			},
 		}
 

@@ -96,6 +96,8 @@ alias tmux-prev-window="tmux previous-window"
 
 alias flush-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
+alias gcc="gcc-15"
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -111,3 +113,10 @@ eval "$(zoxide init --cmd cd zsh)"
 export PATH="$HOME/opt/zig:$PATH"
 
 . "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/Users/tylerlang/.bun/_bun" ] && source "/Users/tylerlang/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
