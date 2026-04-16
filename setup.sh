@@ -70,21 +70,23 @@ fi
 #TODO: Install Latest NeoVim
 
 # NERD_FONTS
-FONT_NAME="JetBrainsMono Nerd Font"
 FONT_DIR="$HOME/.local/share/fonts"
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
 
-if fc-list | grep -qi "$FONT_NAME"; then
-    echo "$FONT_NAME already installed, skipping..."
+if compgen -G "$FONT_DIR/JetBrainsMonoNerdFont-*.ttf" > /dev/null; then
+    echo "JetBrainsMono Nerd Font already installed, skipping..."
 else
-    echo "Installing $FONT_NAME"
+    echo "Installing JetBrainsMono Nerd Font"
     mkdir -p "$FONT_DIR"
     cd "$FONT_DIR"
-    curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
-    unzip -o JetBrainsMono.zip
-    rm JetBrainsMono.zip
+
+    tmp_zip="/tmp/JetBrainsMono.zip"
+    curl -fLo "$tmp_zip" "$FONT_URL"
+    unzip -o "$tmp_zip" -d "$FONT_DIR"
+    rm -f "$tmp_zip"
 
     fc-cache -fv
-    echo "$FONT_NAME installed"
+    echo "JetBrainsMono Nerd Font installed"
 fi
 
 #TODO: Install Lastest Golang
