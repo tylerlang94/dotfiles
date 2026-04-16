@@ -112,5 +112,8 @@ if ! shopt -oq posix; then
     fi
 fi
 
+# My Aliases
+alias ls='ls -la'
+
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin

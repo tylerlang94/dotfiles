@@ -2,16 +2,16 @@
 set -euo pipefail
 
 CURRENT_USER="${SUDO_USER:-$USER}"
-echo "Current user: $CURRENT_USER"
+echo "[INFO] Current user: $CURRENT_USER"
 
 if groups "$CURRENT_USER" | grep -qw sudo; then
-    echo "$CURRENT_USER is already in the sudo group."
+    echo "[INFO] $CURRENT_USER is already in the sudo group."
 else
-    echo "Adding $CURRENT_USER to sudo group..."
+    echo "[INFO] Adding $CURRENT_USER to sudo group..."
     sudo usermod -aG sudo "$CURRENT_USER"
 fi
 
-echo "Updating system..."
+echo "[INFO] Updating system..."
 sudo apt update -y
 sudo apt upgrade -y
 
@@ -20,9 +20,9 @@ packages=("luarocks" "git" "stow" "tmux" "ca-certificates" "curl" "gnupg" "lsb-r
 
 for pkg in "${packages[@]}"; do
     if dpkg -s "$pkg" &>/dev/null; then
-        echo "$pkg is already installed."
+        echo "[INFO] $pkg is already installed."
     else
-        echo "Installing $pkg..."
+        echo "[INFO] Installing $pkg..."
         sudo apt install -y "$pkg"
     fi
 done
@@ -49,9 +49,9 @@ sudo apt update -y
 docker_packages=("docker-ce" "docker-ce-cli" "containerd.io" "docker-buildx-plugin" "docker-compose-plugin")
 for pkg in "${docker_packages[@]}"; do
     if dpkg -s "$pkg" &>/dev/null; then
-        echo "$pkg is already installed."
+        echo "[INFO] $pkg is already installed."
     else
-        echo "Installing $pkg..."
+        echo "[INFO] Installing $pkg..."
         sudo apt install -y "$pkg"
     fi
 done
@@ -60,11 +60,11 @@ sudo systemctl enable docker
 sudo systemctl start docker
 
 if groups "$CURRENT_USER" | grep -qw docker; then
-    echo "$CURRENT_USER is already in the docker group."
+    echo "[INFO] $CURRENT_USER is already in the docker group."
 else
-    echo "Adding $CURRENT_USER to docker group..."
+    echo "[INFO] Adding $CURRENT_USER to docker group..."
     sudo usermod -aG docker "$CURRENT_USER"
-    echo "You may need to log out and log back in for docker group changes to take effect."
+    echo "[WARNING] You may need to log out and log back in for docker group changes to take effect."
 fi
 
 #TODO: Install Latest NeoVim
@@ -73,8 +73,8 @@ fi
 FONT_DIR="$HOME/.local/share/fonts"
 FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
 
-if compgen -G "$FONT_DIR/JetBrainsMonoNerdFont-*.ttf" > /dev/null; then
-    echo "JetBrainsMono Nerd Font already installed, skipping..."
+if compgen -G "$FONT_DIR/JetBrainsMonoNerdFont-*.ttf" >/dev/null; then
+    echo "[INFO] JetBrainsMono Nerd Font already installed, skipping..."
 else
     echo "Installing JetBrainsMono Nerd Font"
     mkdir -p "$FONT_DIR"
@@ -86,7 +86,7 @@ else
     rm -f "$tmp_zip"
 
     fc-cache -fv
-    echo "JetBrainsMono Nerd Font installed"
+    echo "[INFO] JetBrainsMono Nerd Font installed"
 fi
 
 #TODO: Install Lastest Golang
@@ -95,4 +95,4 @@ fi
 #      This will make it so I don't have to edit this line for different OS's or when adding another package.
 cd ~/dotfiles/ && stow common nvim debian
 
-echo "Setup complete!"
+echo "[INFO] Setup complete!"
