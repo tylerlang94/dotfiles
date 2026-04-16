@@ -16,7 +16,7 @@ sudo apt update -y
 sudo apt upgrade -y
 
 # PACKAGES I HAVE ON EVERY INSTALL
-packages=("git" "stow" "tmux" "ca-certificates" "curl" "gnupg" "lsb-release")
+packages=("luarocks" "git" "stow" "tmux" "ca-certificates" "curl" "gnupg" "lsb-release" "nodejs" "npm" "ripgrep" "gopls")
 
 for pkg in "${packages[@]}"; do
     if dpkg -s "$pkg" &>/dev/null; then
@@ -67,8 +67,30 @@ else
     echo "You may need to log out and log back in for docker group changes to take effect."
 fi
 
-#TODO: Setup NeoVim
-#TODO: Setup Golang
-#TODO: Use stow on the dotfiles
+#TODO: Install Latest NeoVim
+
+# NERD_FONTS
+FONT_NAME="JetBrainsMono Nerd Font"
+FONT_DIR="$HOME/.local/share/fonts"
+
+if fc-list | grep -qi "$FONT_NAME"; then
+    echo "$FONT_NAME already installed, skipping..."
+else
+    echo "Installing $FONT_NAME"
+    mkdir -p "$FONT_DIR"
+    cd "$FONT_DIR"
+    curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+    unzip -o JetBrainsMono.zip
+    rm JetBrainsMono.zip
+
+    fc-cache -fv
+    echo "$FONT_NAME installed"
+fi
+
+#TODO: Install Lastest Golang
+
+#TODO: Make a checkbox option for the different packages in dotfiles.
+#      This will make it so I don't have to edit this line for different OS's or when adding another package.
+cd ~/dotfiles/ && stow common nvim debian
 
 echo "Setup complete!"

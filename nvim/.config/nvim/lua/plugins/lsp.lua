@@ -196,7 +196,7 @@ return {
 			--terraformls = {},
 			--jsonls = {},
 			--yamlls = {},
-			gopls = {},
+			--gopls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
