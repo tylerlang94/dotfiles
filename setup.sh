@@ -148,10 +148,10 @@ if [ -d "$HOME/dotfiles" ]; then
     cd ~/dotfiles/
     if [ "$OS" = "Linux" ]; then
         echo "[INFO] Stowing Linux configurations..."
-        stow tmux nvim debian
+        stow common debian
     elif [ "$OS" = "Darwin" ]; then
         echo "[INFO] Stowing macOS configurations..."
-        stow tmux nvim macos
+        stow common macos
     fi
 else
     echo "[WARNING] ~/dotfiles directory not found, skipping stow."
