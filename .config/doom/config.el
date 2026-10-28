@@ -50,6 +50,9 @@
 (setq org-directory "~/org/")
 
 
+;; Sets the workspace name to persist
+(after! doom-modeline
+  (setq doom-modeline-persp-name t))
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `with-eval-after-load' block, otherwise Doom's defaults may override your
 ;; settings. E.g.
@@ -71,7 +74,7 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
-;;
+(map! :leader :desc "Dashboard" "o d" #'+dashboard/open)
 ;; To get information about any of these functions/macros, move the cursor over
 ;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
 ;; This will open documentation for it, including demos of how they are used.
