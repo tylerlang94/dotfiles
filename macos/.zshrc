@@ -94,6 +94,12 @@ alias tmux-split-v="tmux split-window -v"
 alias tmux-next-window="tmux next-window"
 alias tmux-prev-window="tmux previous-window"
 
+# NOTE: DOOM EMACS Aliases
+alias doom-sync="~/.config/emacs/bin/doom sync"
+alias doom-env="~/.config/emacs/bin/doom env"
+alias doom-upgrade="~/.config/emacs/bin/doom upgrade"
+alias doom-doctor="~/.config/emacs/bin/doom doctor"
+
 alias flush-dns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 alias gcc="gcc-15"
