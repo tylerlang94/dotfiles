@@ -193,7 +193,7 @@ return {
 			--		},
 			--	},
 			--},
-			--terraformls = {},
+			terraformls = {},
 			--jsonls = {},
 			--yamlls = {},
 			--gopls = {},
