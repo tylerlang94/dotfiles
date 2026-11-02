@@ -1,0 +1,5 @@
+# Not dotfiles — kept locally only
+_not-dotfiles/
+# Runtime sockets
+**/sockets/
+.DS_Store
